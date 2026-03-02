@@ -27,5 +27,6 @@
   "step_select_scanner_port": "Select your scanner port from the tray menu",
   "download_for": "Download for {{platform}}",
   "for_other_platforms": "For Other Platforms",
-  "connect_scanner_bridge": "Connect Scanner Bridge"
+  "connect_scanner_bridge": "Connect Scanner Bridge",
+  "connect_serial_scanner": "Connect serial scanner"
 }

@@ -5,6 +5,7 @@ import { Usb } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
+import { Button } from "./ui/button.tsx";
 
 interface Props {
   facilityId: string;
@@ -69,19 +70,9 @@ export default function SerialScannerButton({
     }
   }, [wsBridgeError]);
 
-  // Show connected indicator(TODO: need to change placing)
-  if (isConnected) {
-    return (
-      <div className="relative flex items-center justify-center size-4">
-        <div className="absolute size-1.5 rounded-full bg-green-600 animate-pulse" />
-      </div>
-    );
-  }
-
   return (
     <>
-      <button
-        type="button"
+      <Button
         onClick={() => setShowSetupDialog(true)}
         disabled={isConnecting || disabled}
         className={className}
@@ -91,13 +82,18 @@ export default function SerialScannerButton({
             ? t("connect_serial_scanner")
             : t("connect_scanner_bridge")
         }
+        variant="ghost"
       >
         {isConnecting ? (
           <div className="size-4 border-2 border-gray-400 border-t-transparent rounded-full animate-spin" />
         ) : (
-          <Usb className="size-4" />
+          !isConnected && <Usb className="size-4" />
         )}
-      </button>
+        {/* TODO: need to change placing */}
+        {isConnected && (
+          <div className="absolute size-1.5 rounded-full bg-green-600 animate-pulse" />
+        )}
+      </Button>
 
       <ScannerSetupDialog
         isOpen={showSetupDialog}
