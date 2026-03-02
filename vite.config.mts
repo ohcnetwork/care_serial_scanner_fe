@@ -41,7 +41,7 @@ export default defineConfig({
     },
   },
   preview: {
-    port: 10120,
+    port: 10121,
     allowedHosts: true,
     host: "0.0.0.0",
     cors: {

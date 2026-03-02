@@ -1,3 +1,5 @@
+/// <reference types="w3c-web-serial" />
+
 export type UserBase = {
   id: string;
   first_name: string;
