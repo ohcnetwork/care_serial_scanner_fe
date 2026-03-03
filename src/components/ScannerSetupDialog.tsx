@@ -71,10 +71,18 @@ function getBrowserName(): string {
 }
 
 const DOWNLOAD_LINKS = {
-  macos: import.meta.env.VITE_SCANNER_BRIDGE_DOWNLOAD_MACOS,
-  windows: import.meta.env.VITE_SCANNER_BRIDGE_DOWNLOAD_WINDOWS,
-  linux: import.meta.env.VITE_SCANNER_BRIDGE_DOWNLOAD_LINUX,
-  unknown: import.meta.env.VITE_SCANNER_BRIDGE_GITHUB,
+  macos:
+    import.meta.env.VITE_SCANNER_BRIDGE_DOWNLOAD_MACOS ||
+    "https://github.com/ohcnetwork/care_scanner_bridge/releases/latest/download/care-scanner-bridge-macos.dmg",
+  windows:
+    import.meta.env.VITE_SCANNER_BRIDGE_DOWNLOAD_WINDOWS ||
+    "https://github.com/ohcnetwork/care_scanner_bridge/releases/latest/download/care-scanner-bridge-setup.exe",
+  linux:
+    import.meta.env.VITE_SCANNER_BRIDGE_DOWNLOAD_LINUX ||
+    "https://github.com/ohcnetwork/care_scanner_bridge/releases/latest/download/care-scanner-bridge-linux.AppImage",
+  unknown:
+    import.meta.env.VITE_SCANNER_BRIDGE_GITHUB ||
+    "https://github.com/ohcnetwork/care_scanner_bridge/releases",
 };
 
 const PLATFORM_LABELS = {
